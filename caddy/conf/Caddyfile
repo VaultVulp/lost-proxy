@@ -1,9 +1,8 @@
-localhost {
+example.com {
     root /srv
     rewrite / {
     	regexp .*
     	to /rssdd.xml
     }
-    tls off
     header / Content-Type "text/xml; charset=utf-8"
 }
