@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  scrappy:
+    build: app
+    restart: unless-stopped
+    volumes:
+    - webroot:/app/src/webroot
+    logging:
+      driver: json-file
+      options:
+          max-size: "10m"
+          max-file: "5"
+
+  caddy:
+    build: caddy
+    restart: unless-stopped
+    ports: 
+    - "80:2015"
+    - "443:2015"
+    volumes:
+    - webroot:/srv:ro
+    logging:
+      driver: json-file
+      options:
+          max-size: "10m"
+          max-file: "5"
+
+volumes:
+  webroot:
