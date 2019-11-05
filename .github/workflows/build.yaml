@@ -7,7 +7,7 @@ on:
       - feature/setup-actions
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
 
     steps:
