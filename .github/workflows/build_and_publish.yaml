@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - feature/setup-actions
 
 jobs:
   build_and_publish:
