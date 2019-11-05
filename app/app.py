@@ -18,14 +18,9 @@ def prepare_folders():
 
 def get_rss_feed_text():
     """ Load RSS feed and extract the text from it."""
-    data = requests.get('http://old.lostfilm.tv/rssdd.xml', headers={'User-Agent': USER_AGENT})
-    data.encoding = 'windows-1251'
+    data = requests.get('http://retre.org/rssdd.xml', headers={'User-Agent': USER_AGENT})
+    data.encoding = 'utf-8'
     return data.text
-
-
-def modify_links(text: str) -> str:
-    """ Return new string with all 'www.lostfilm.tv' replaced with 'old.lostfilm.tv'. """
-    return text.replace('www.lostfilm.tv', 'old.lostfilm.tv')
 
 
 def save_text_to_file(text: str):
@@ -39,7 +34,6 @@ def main():
     while (True):
         prepare_folders()
         text = get_rss_feed_text()
-        text = modify_links(text)
         save_text_to_file(text)
         sleep(1800)
 

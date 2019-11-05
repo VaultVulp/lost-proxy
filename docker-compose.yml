@@ -2,7 +2,7 @@ version: '3'
 
 services:
   scrappy:
-    build: app
+    image: docker.pkg.github.com/vaultvulp/lost-proxy/lost-proxy-app:latest
     restart: unless-stopped
     volumes:
     - webroot:/app/src/webroot
@@ -13,7 +13,7 @@ services:
           max-file: "5"
 
   caddy:
-    build: caddy
+    image: docker.pkg.github.com/vaultvulp/lost-proxy/lost-proxy-caddy:latest
     restart: unless-stopped
     ports: 
     - "80:80"
