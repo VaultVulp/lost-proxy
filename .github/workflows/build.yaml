@@ -16,8 +16,17 @@ jobs:
 
     - name: Build app
       run: |
-         docker build -t docker.pkg.github.com/${{ github.repository }}/app:latest ./app
-    
+        docker build -t docker.pkg.github.com/${github.repository,,}/app:latest ./app
+      env:
+        GITHUB_REPOSITORY: ${{ github.repository }}
+
     - name: Build caddy
       run: |
-         docker build -t docker.pkg.github.com/${{ github.repository }}/caddy:latest ./caddy
+        docker build -t docker.pkg.github.com/${github.repository,,}/caddy:latest ./caddy
+      env:
+        GITHUB_REPOSITORY: ${{ github.repository }}
+    
+    - name: Authenticate to GitHub Package Registry
+      run: docker login docker.pkg.github.com -u publisher -p "${GITHUB_TOKEN}"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
