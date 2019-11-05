@@ -29,7 +29,7 @@ jobs:
     - name: Authenticate to GitHub Package Registry
       run: docker login docker.pkg.github.com -u publisher -p "${{ secrets.github_token }}"
 
-    -name: Publish images
+    - name: Publish images
       run: |
         docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/app:latest
         docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/caddy:latest
