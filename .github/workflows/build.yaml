@@ -16,13 +16,13 @@ jobs:
 
     - name: Build app
       run: |
-        docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY,,}/app:latest ./app
+        docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY,,}/lost-proxy-app:latest ./app
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
 
     - name: Build caddy
       run: |
-        docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY,,}/caddy:latest ./caddy
+        docker build -t docker.pkg.github.com/${GITHUB_REPOSITORY,,}/lost-proxy-caddy:latest ./caddy
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
     
@@ -31,8 +31,8 @@ jobs:
 
     - name: Publish images
       run: |
-        docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/app:latest
-        docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/caddy:latest
+        docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/lost-proxy-app:latest
+        docker push docker.pkg.github.com/${GITHUB_REPOSITORY,,}/lost-proxy-caddy:latest
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
     
