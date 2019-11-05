@@ -19,8 +19,8 @@ def prepare_folders():
 def get_rss_feed_text():
     """ Load RSS feed and extract the text from it."""
     data = requests.get('http://retre.org/rssdd.xml', headers={'User-Agent': USER_AGENT})
+    data.encoding = 'utf-8'
     return data.text
-
 
 
 def save_text_to_file(text: str):
