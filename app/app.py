@@ -18,7 +18,7 @@ def prepare_folders():
 
 def get_rss_feed_text():
     """ Load RSS feed and extract the text from it."""
-    data = requests.get('http://old.lostfilm.tv/rssdd.xml', headers={'User-Agent': USER_AGENT})
+    data = requests.get('http://retre.org/rssdd.xml', headers={'User-Agent': USER_AGENT})
     data.encoding = 'windows-1251'
     return data.text
 
