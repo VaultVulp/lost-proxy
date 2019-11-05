@@ -1,9 +1,10 @@
 name: Build
 
-# on:
-#   push:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
+      - feature/setup-actions
 
 jobs:
   publish:
