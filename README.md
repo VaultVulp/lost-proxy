@@ -1,6 +1,6 @@
 # lost-proxy
 
-RSS-proxy for well-known LostFilm.tv project. More info [here](https://www.vaultvulp.tk/posts/lostproxy/)
+RSS-proxy for well-known LostFilm.tv project. More info [here](https://www.vaultvulp.dev/posts/lostproxy/)
 
 Installation: 
 * Clone this repo: `git clone git@github.com:VaultVulp/lost-proxy.git`
